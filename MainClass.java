@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MainClass {
 
     public static ArrayList<Word> collection = new ArrayList<Word>();
-    public static String filePath = "src/solid/Dictionary.txt";
+    public static String filePath = "src/solid/files/Dictionary.txt";
     /**
      * @param args the command line arguments
      */
