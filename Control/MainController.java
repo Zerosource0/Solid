@@ -5,6 +5,10 @@
  */
 package Control;
 
+import solid.HelpClasses.Load;
+import solid.HelpClasses.Save;
+import solid.MainClass;
+
 /**
  *
  * @author marcj_000
@@ -55,14 +59,29 @@ public class MainController implements Interface.WordPairControlInterface {
         //Word pairs are read from the file "filename" and added to the
         //collection of word pairs. Returns true if successfully done. Otherwise it
         //returns false.
-        return false;
+        
+        Load loader = new Load();
+        MainClass.collection = loader.LoadWords(filename);
+        if (MainClass.collection == null){
+            System.out.println("File didn't load!");
+            return false;
+        }
+        
+
+        //System.out.println(MainClass.collection.get(0).formatForSaving());
+        return true;
     }
 
     @Override
     public boolean save(String filename) {
         //Pre: Post: All word pairs from the collection has been written to the
         //file "filename" Returns true if successfully done. Otherwise false.
-        return false;
+        try{
+        Save saver = new Save(filename);
+        } catch(Exception e){
+            return false;
+        }
+        return true;
     }
 
     @Override

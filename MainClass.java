@@ -5,17 +5,23 @@
  */
 package solid;
 
+import Control.MainController;
+import java.util.ArrayList;
+
 /**
  *
  * @author marcj_000
  */
 public class MainClass {
 
+    public static ArrayList<Word> collection = new ArrayList<Word>();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MainController control = new MainController();
+        control.load("src/solid/Dictionary.txt");
+        //control.save("src/solid/Dictionary.txt");
     }
     
 }

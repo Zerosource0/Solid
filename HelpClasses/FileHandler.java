@@ -61,7 +61,7 @@ public class FileHandler
             file_scanner = new Scanner(new File(filename));  //Connection to the file using the Scanner object
         } catch (FileNotFoundException ex) {
             System.out.println("Could not find the file to load from! Returning null.");
-            ex.printStackTrace();
+            //ex.printStackTrace();
             return null;  //If something goes wrong the method returns null
         }
 
@@ -83,7 +83,7 @@ public class FileHandler
      * @params filename String the name of the file (that is located in the project folder).
      * @return true if everything went well. False if an exception was raised.
      */
-    public static boolean savePersons(ArrayList<String> stringArray, String filename)
+    public static boolean save(ArrayList<String> stringArray, String filename)
     {
         if( stringArray == null ) { return false;  }  //Checking parameter for null.
         FileWriter output;  //Creating reference for filewriter.

@@ -8,21 +8,32 @@ package solid.HelpClasses;
 import java.io.File;
 import java.util.ArrayList;
 import solid.HelpClasses.FileHandler;
+import solid.Word;
 /**
  *
  * @author marcj_000
  */
 public class Load {
     
-    public Load(String filePath){
+    public ArrayList<Word> LoadWords(String filePath){
         
-        FileHandler fileHandler = new FileHandler();
         
+        ArrayList<Word> wordsToReturn = new ArrayList<Word>();
         ArrayList<String> loadedText = new ArrayList<String>();
         
-        loadedText = fileHandler.load(filePath);
+        loadedText = FileHandler.load(filePath);
         
-    
-        
+        if(loadedText != null)
+            {
+            for (String word : loadedText){
+                Word tempWord = new Word(word);
+                wordsToReturn.add(tempWord);
+            }
+        } 
+        else
+        {
+            return null;
+        }
+        return wordsToReturn;
     }
 }
