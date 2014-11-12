@@ -19,6 +19,31 @@ public class Word {
         czech = cze;
         probability = prob;
     }
+
+    public String getEnglish() {
+        return english;
+    }
+
+    public void setEnglish(String english) {
+        this.english = english;
+    }
+
+    public String getCzech() {
+        return czech;
+    }
+
+    public void setCzech(String czech) {
+        this.czech = czech;
+    }
+
+    public int getProbability() {
+        return probability;
+    }
+
+    public void setProbability(int probability) {
+        this.probability = probability;
+    }
+    
     
     public Word(String loadedString){
     
@@ -33,5 +58,7 @@ public class Word {
         String formattedString = english + "," + czech + "," + probability;
         return formattedString;
     }
+    
+    
     
 }

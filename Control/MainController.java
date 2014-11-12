@@ -7,6 +7,7 @@ package Control;
 
 import solid.HelpClasses.Load;
 import solid.HelpClasses.Save;
+import solid.HelpClasses.Search;
 import solid.MainClass;
 
 /**
@@ -51,7 +52,18 @@ public class MainController implements Interface.WordPairControlInterface {
         //Returns the answer corresponding to the question if this
         //exists in the collection. Otherwise it returns null.
         
-        return null;
+        Search searcher = new Search();
+        
+        String searchedWord;
+        
+        searchedWord = searcher.SearchFor(question);
+        
+        if(searchedWord == null){
+            System.out.println("Word does not exist in collection");
+            return null;
+        }
+        System.out.println(searchedWord);
+        return searchedWord;
     }
 
     @Override

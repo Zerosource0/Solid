@@ -22,6 +22,8 @@ public class MainClass {
         MainController control = new MainController();
         control.load("src/solid/Dictionary.txt");
         //control.save("src/solid/Dictionary.txt");
+        control.lookup("cat");
+        
     }
     
 }
