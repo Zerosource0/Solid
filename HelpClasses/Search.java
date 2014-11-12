@@ -13,6 +13,14 @@ import solid.MainClass;
  */
 public class Search {
     
+    public String getRandomQuestion(){
+    
+        
+        
+    return null;
+    }
+    
+    
     public String SearchFor (String question){
         
         
