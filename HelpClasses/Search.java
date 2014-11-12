@@ -20,8 +20,6 @@ public class Search {
             
             if(MainClass.collection.get(i).getEnglish().equals(question))
             {
-                
-                System.out.println("Yay");
                 return MainClass.collection.get(i).getCzech();
             }
         }

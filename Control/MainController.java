@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package solid.Control;
 
 import solid.HelpClasses.Load;
+import solid.HelpClasses.Probability;
 import solid.HelpClasses.Save;
 import solid.HelpClasses.Search;
 import solid.MainClass;
@@ -14,7 +15,7 @@ import solid.MainClass;
  *
  * @author marcj_000
  */
-public class MainController implements Interface.WordPairControlInterface {
+public class MainController implements solid.Interface.WordPairControlInterface {
 
     
     @Override
@@ -27,8 +28,7 @@ public class MainController implements Interface.WordPairControlInterface {
     @Override
     public int size() {
        //Pre: Post: Returns the number of wordpairs in the collection (not the file).
-        
-        return 0;
+        return MainClass.collection.size();
     }
 
     @Override
@@ -43,7 +43,16 @@ public class MainController implements Interface.WordPairControlInterface {
     public boolean checkGuess(String question, String quess) {
         //Pre: Post: Returns true if (question, quess) exists as a word pair in the
         //collection, otherwise false.
-        
+
+        Search searcher = new Search();
+        if(searcher.SearchFor(question).equals(quess))
+        {
+            System.out.println("guessed right");
+            Probability.decreaseProbability(question);
+            return true;
+        }
+        System.out.println("guessed wrong");
+        Probability.increaseProbability(question);
         return false;
     }
 

@@ -5,7 +5,7 @@
  */
 package solid;
 
-import Control.MainController;
+import solid.Control.MainController;
 import java.util.ArrayList;
 
 /**
@@ -15,14 +15,17 @@ import java.util.ArrayList;
 public class MainClass {
 
     public static ArrayList<Word> collection = new ArrayList<Word>();
+    public static String filePath = "src/solid/Dictionary.txt";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         MainController control = new MainController();
-        control.load("src/solid/Dictionary.txt");
-        //control.save("src/solid/Dictionary.txt");
-        control.lookup("cat");
+        control.load(filePath);
+        
+        //control.checkGuess("cat", "kočka");
+        control.save(filePath);
+        
         
     }
     

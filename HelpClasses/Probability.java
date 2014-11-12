@@ -13,22 +13,25 @@ import solid.MainClass;
  */
 public class Probability {
     
-    public void increaseProbability(String question){
+    public static void increaseProbability(String question){
     
         for(int i = 0; i < MainClass.collection.size(); i++){
-            if(MainClass.collection.get(i).getProbability() <= 8){
-            MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() + 2);
+            if(MainClass.collection.get(i).getEnglish().equals(question)) {
+                if(MainClass.collection.get(i).getProbability() <= 8){
+                MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() + 2);
+                }
             }
         }
         
     }
     
-    
-    public void decreaseProbability(String question){
+    public static void decreaseProbability(String question){
         
         for(int i = 0; i < MainClass.collection.size(); i++){
-            if(MainClass.collection.get(i).getProbability() >= 2){
-            MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() - 2);
+            if(MainClass.collection.get(i).getEnglish().equals(question)) {
+                if(MainClass.collection.get(i).getProbability() >= 2){
+                MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() - 2);
+                }
             }
         }
         
