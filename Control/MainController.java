@@ -35,8 +35,8 @@ public class MainController implements solid.Interface.WordPairControlInterface 
     public String getRandomQuestion() {
        //Pre: At least one word pair must be present Post: Returns a question
        //randomly selected from the collection of word pairs.
-        
-        return null;
+        Search searcher = new Search();
+        return searcher.getRandomQuestion();
     }
 
     @Override

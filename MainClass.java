@@ -23,7 +23,9 @@ public class MainClass {
         GUI userInterface = new GUI();
         MainController control = new MainController();
         control.load(filePath);
-        
+
+        userInterface.init();
+
         //control.checkGuess("cat", "kočka");
         control.save(filePath);
         
