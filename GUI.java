@@ -2,6 +2,7 @@ package solid;
 
 import net.miginfocom.swing.MigLayout;
 import solid.Control.MainController;
+import solid.HelpClasses.Reset;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import solid.HelpClasses.Reset;
 
 public class GUI {
     private JTextField englishWord = new JTextField();
@@ -41,11 +41,10 @@ public class GUI {
         panel.add(czechWord);
         panel.add(guessButton);
         panel.add(new JLabel(""));
-        panel.add(nextButton,"wrap");
-        panel.add(new JLabel(""));
-        panel.add(rewardLabel);
         panel.add(nextButton);
         panel.add(resetButton);
+        panel.add(new JLabel(""));
+        panel.add(rewardLabel);
         
         resetButton.setText("Reset Progress");
         resetButton.addActionListener(new ActionListener(){
