@@ -9,7 +9,7 @@ person,člověk,10
 house,dům,10
 one,jedna,10
 two,dva,10
-three,tři,8
+three,tři,10
 four,čtyři,10
 five,pět,10
 elephant,slon,10
