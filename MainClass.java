@@ -29,10 +29,7 @@ public class MainClass {
 
         userInterface.init();
 
-        //control.checkGuess("cat", "kočka");
         control.save(filePath);
-        
-        
     }
     
 }

@@ -54,7 +54,6 @@ public class Word {
     }
     
     public String formatForSaving(){
-    
         String formattedString = english + "," + czech + "," + probability;
         return formattedString;
     }

@@ -10,6 +10,7 @@ import solid.HelpClasses.Probability;
 import solid.HelpClasses.Save;
 import solid.HelpClasses.Search;
 import solid.MainClass;
+import solid.Word;
 
 /**
  *
@@ -22,7 +23,9 @@ public class MainController implements solid.Interface.WordPairControlInterface 
     public void add(String question, String answer) {
         //Pre: Post: A new word pair is added to the existing collection of word
         //pairs. This method does not save to file!
-       
+
+        Word tempWord = new Word(question + "," + answer + ",10");
+        MainClass.collection.add(tempWord);
     }
 
     @Override
