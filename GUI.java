@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import solid.HelpClasses.Reset;
 
 public class GUI {
     private JTextField englishWord = new JTextField();
@@ -19,6 +20,8 @@ public class GUI {
     private JLabel rewardLabel = new JLabel();
 
     private JFrame jf = new JFrame();
+    private JButton resetButton = new JButton();
+   
     private JFrame jfAdd = new JFrame();
     private MainController control = new MainController();
     private JTextField newEnglishWord = new JTextField();
@@ -41,6 +44,17 @@ public class GUI {
         panel.add(nextButton,"wrap");
         panel.add(new JLabel(""));
         panel.add(rewardLabel);
+        panel.add(nextButton);
+        panel.add(resetButton);
+        
+        resetButton.setText("Reset Progress");
+        resetButton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Reset reset = new Reset();
+                reset.resetDictionary();
+            }
+        });
 
         newWordButton.setText("Add new word");
         newWordButton.addActionListener(new ActionListener() {
