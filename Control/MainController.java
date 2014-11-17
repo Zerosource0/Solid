@@ -111,7 +111,7 @@ public class MainController implements solid.Interface.WordPairControlInterface 
     @Override
     public void clear() {
         //Pre: Post: The existing collection of word pairs is cleared
-        
+        MainClass.collection.clear();
         
     }
     
