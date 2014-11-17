@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class GUI {
     private JTextField englishWord = new JTextField();
@@ -14,7 +16,9 @@ public class GUI {
     private JButton guessButton = new JButton();
     private JButton newWordButton = new JButton();
     private JButton nextButton = new JButton();
+    private JLabel rewardLabel = new JLabel();
 
+    private JFrame jf = new JFrame();
     private JFrame jfAdd = new JFrame();
     private MainController control = new MainController();
     private JTextField newEnglishWord = new JTextField();
@@ -34,7 +38,9 @@ public class GUI {
         panel.add(czechWord);
         panel.add(guessButton);
         panel.add(new JLabel(""));
-        panel.add(nextButton);
+        panel.add(nextButton,"wrap");
+        panel.add(new JLabel(""));
+        panel.add(rewardLabel);
 
         newWordButton.setText("Add new word");
         newWordButton.addActionListener(new ActionListener() {
@@ -42,7 +48,9 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 newEnglishWord.setText("");
                 newCzechWord.setText("");
+                jfAdd.setLocationRelativeTo(jf);
                 jfAdd.setVisible(true);
+                jf.setVisible(false);
             }
         });
 
@@ -53,9 +61,11 @@ public class GUI {
                 MainController control = new MainController();
 
                 if(control.checkGuess(englishWord.getText(),czechWord.getText())){
+                    rewardLabel.setText("That's right!");
                     init();
+                } else {
+                    rewardLabel.setText("Let's try again...");
                 }
-                
                 control.save(MainClass.filePath);
             }
         });
@@ -68,7 +78,7 @@ public class GUI {
             }
         });
 
-        JFrame jf = new JFrame();
+
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setLayout(new BorderLayout());
         jf.setLocationRelativeTo(null);
@@ -88,7 +98,6 @@ public class GUI {
     public void addWord() {
         MigLayout layout = new MigLayout("fillx,wrap 2", "[left][grow,fill]");
         JPanel panel = new JPanel(layout);
-        //panel.add(new JLabel("Add new word."),"span 2");
         panel.add(new JLabel(""),"span 3");
         panel.add(new JLabel("English word:"));
         panel.add(newEnglishWord,"wrap");
@@ -103,18 +112,56 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 control.add(newEnglishWord.getText(),newCzechWord.getText());
                 control.save(MainClass.filePath);
+                jf.setLocationRelativeTo(jfAdd);
                 jfAdd.setVisible(false);
+                jf.setVisible(true);
                 newEnglishWord.setText("");
                 newCzechWord.setText("");
             }
         });
 
-        jfAdd.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jfAdd.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        jfAdd.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                jf.setLocationRelativeTo(jfAdd);
+                jfAdd.setVisible(false);
+                jf.setVisible(true);
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
         jfAdd.setLayout(new BorderLayout());
-        jfAdd.setLocationRelativeTo(null);
+        jfAdd.setLocationRelativeTo(jf);
         jfAdd.add(panel, BorderLayout.CENTER);
         jfAdd.setSize(400, 250);
-        jfAdd.setVisible(true);
-        jfAdd.setVisible(false);
     }
 }
