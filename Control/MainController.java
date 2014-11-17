@@ -9,15 +9,18 @@ import solid.HelpClasses.Load;
 import solid.HelpClasses.Probability;
 import solid.HelpClasses.Save;
 import solid.HelpClasses.Search;
-import solid.MainClass;
 import solid.Word;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author marcj_000
  */
-public class MainController implements solid.Interface.WordPairControlInterface {
 
+public class MainController implements solid.Interface.WordPairControlInterface {
+    public static ArrayList<Word> collection = new ArrayList<Word>();
+    public static String filePath = "src/solid/files/Dictionary.txt";
     
     @Override
     public void add(String question, String answer) {
@@ -25,13 +28,13 @@ public class MainController implements solid.Interface.WordPairControlInterface 
         //pairs. This method does not save to file!
 
         Word tempWord = new Word(question + "," + answer + ",10");
-        MainClass.collection.add(tempWord);
+        collection.add(tempWord);
     }
 
     @Override
     public int size() {
        //Pre: Post: Returns the number of wordpairs in the collection (not the file).
-        return MainClass.collection.size();
+        return collection.size();
     }
 
     @Override
@@ -85,8 +88,8 @@ public class MainController implements solid.Interface.WordPairControlInterface 
         //returns false.
         
         Load loader = new Load();
-        MainClass.collection = loader.LoadWords(filename);
-        if (MainClass.collection == null){
+        collection = loader.LoadWords(filename);
+        if (collection == null){
             System.out.println("File didn't load!");
             return false;
         }
@@ -111,7 +114,7 @@ public class MainController implements solid.Interface.WordPairControlInterface 
     @Override
     public void clear() {
         //Pre: Post: The existing collection of word pairs is cleared
-        MainClass.collection.clear();
+        collection.clear();
         
     }
     

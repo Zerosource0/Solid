@@ -5,10 +5,7 @@
  */
 package solid.HelpClasses;
 
-import java.util.ArrayList;
-import solid.HelpClasses.Load;
-import solid.MainClass;
-import solid.Word;
+import solid.Control.MainController;
 
 /**
  *
@@ -19,8 +16,8 @@ public class Reset {
     public void resetDictionary(){
     
         Load loader = new Load();
-        
-        MainClass.collection = loader.LoadWords("src/solid/files/OriginalDictionary.txt");
+
+        MainController.collection = loader.LoadWords("src/solid/files/OriginalDictionary.txt");
     
         Save saver = new Save("src/solid/files/Dictionary.txt");
         

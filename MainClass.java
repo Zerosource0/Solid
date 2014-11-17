@@ -6,16 +6,12 @@
 package solid;
 
 import solid.Control.MainController;
-import java.util.ArrayList;
-import solid.HelpClasses.Reset;
 /**
  *
  * @author marcj_000
  */
 public class MainClass {
-    
-    public static ArrayList<Word> collection = new ArrayList<Word>();
-    public static String filePath = "src/solid/files/Dictionary.txt";
+
     /**
      * @param args the command line arguments
      */
@@ -25,11 +21,12 @@ public class MainClass {
         
         GUI userInterface = new GUI();
         MainController control = new MainController();
-        control.load(filePath);
+        System.out.println(control.size());
+        control.load(MainController.filePath);
 
         userInterface.init();
 
-        control.save(filePath);
+        control.save(MainController.filePath);
     }
     
 }

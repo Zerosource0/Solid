@@ -5,7 +5,7 @@
  */
 package solid.HelpClasses;
 
-import solid.MainClass;
+import solid.Control.MainController;
 
 import java.util.Random;
 
@@ -23,13 +23,13 @@ public class Search {
 
         // Generate random number in range of amount of words
         Random rand = new Random();
-        int randomNum = rand.nextInt(MainClass.collection.size());
+        int randomNum = rand.nextInt(MainController.collection.size());
 
         do {
             // adjusterRandom points at next words, if previous didn't pass probability test
             adjustedRandom = randomNum+iterations;
             // adjustedRandom resets if it reaches collection size
-            if(adjustedRandom >= MainClass.collection.size()) {
+            if(adjustedRandom >= MainController.collection.size()) {
                 adjustedRandom = 0;
             }
 
@@ -38,16 +38,16 @@ public class Search {
 
             /* IF random probability is less than word's probability, test is successful. If not "do" method will try to run
             probability test on next word. */
-            if(randomProbability < MainClass.collection.get(adjustedRandom).getProbability()) {
+            if(randomProbability < MainController.collection.get(adjustedRandom).getProbability()) {
 
-                System.out.println(MainClass.collection.get(adjustedRandom).getEnglish() +
-                " passed!. (Probability of " + MainClass.collection.get(adjustedRandom).getProbability() + ")");
-                englishWord = MainClass.collection.get(adjustedRandom).getEnglish();
+                System.out.println(MainController.collection.get(adjustedRandom).getEnglish() +
+                " passed!. (Probability of " + MainController.collection.get(adjustedRandom).getProbability() + ")");
+                englishWord = MainController.collection.get(adjustedRandom).getEnglish();
                 wordPassed = true;
             } else {
                 iterations++;
-                System.out.println(MainClass.collection.get(adjustedRandom).getEnglish() +
-                " didn't passed!. (Probability of " + MainClass.collection.get(adjustedRandom).getProbability() + ")");
+                System.out.println(MainController.collection.get(adjustedRandom).getEnglish() +
+                " didn't passed!. (Probability of " + MainController.collection.get(adjustedRandom).getProbability() + ")");
             }
 
         } while (wordPassed == false);
@@ -59,11 +59,11 @@ public class Search {
     public String SearchFor (String question){
         
         
-        for (int i = 0; i < MainClass.collection.size(); i++){
+        for (int i = 0; i < MainController.collection.size(); i++){
             
-            if(MainClass.collection.get(i).getEnglish().equals(question))
+            if(MainController.collection.get(i).getEnglish().equals(question))
             {
-                return MainClass.collection.get(i).getCzech();
+                return MainController.collection.get(i).getCzech();
             }
         }
         return null;

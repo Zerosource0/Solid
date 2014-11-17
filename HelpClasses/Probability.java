@@ -5,7 +5,7 @@
  */
 package solid.HelpClasses;
 
-import solid.MainClass;
+import solid.Control.MainController;
 
 /**
  *
@@ -15,10 +15,10 @@ public class Probability {
     
     public static void increaseProbability(String question){
     
-        for(int i = 0; i < MainClass.collection.size(); i++){
-            if(MainClass.collection.get(i).getEnglish().equals(question)) {
-                if(MainClass.collection.get(i).getProbability() <= 8){
-                MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() + 2);
+        for(int i = 0; i < MainController.collection.size(); i++){
+            if(MainController.collection.get(i).getEnglish().equals(question)) {
+                if(MainController.collection.get(i).getProbability() <= 8){
+                    MainController.collection.get(i).setProbability(MainController.collection.get(i).getProbability() + 2);
                 }
             }
         }
@@ -27,10 +27,10 @@ public class Probability {
     
     public static void decreaseProbability(String question){
         
-        for(int i = 0; i < MainClass.collection.size(); i++){
-            if(MainClass.collection.get(i).getEnglish().equals(question)) {
-                if(MainClass.collection.get(i).getProbability() >= 2){
-                MainClass.collection.get(i).setProbability(MainClass.collection.get(i).getProbability() - 2);
+        for(int i = 0; i < MainController.collection.size(); i++){
+            if(MainController.collection.get(i).getEnglish().equals(question)) {
+                if(MainController.collection.get(i).getProbability() >= 2){
+                    MainController.collection.get(i).setProbability(MainController.collection.get(i).getProbability() - 2);
                 }
             }
         }

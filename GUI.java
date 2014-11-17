@@ -79,7 +79,7 @@ public class GUI {
                 } else {
                     rewardLabel.setText("Let's try again...");
                 }
-                control.save(MainClass.filePath);
+                control.save(MainController.filePath);
             }
         });
 
@@ -124,7 +124,7 @@ public class GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 control.add(newEnglishWord.getText(),newCzechWord.getText());
-                control.save(MainClass.filePath);
+                control.save(MainController.filePath);
                 jf.setLocationRelativeTo(jfAdd);
                 jfAdd.setVisible(false);
                 jf.setVisible(true);
