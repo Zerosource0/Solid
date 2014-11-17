@@ -1,0 +1,16 @@
+dog,pes,10
+hello,ahoj,10
+city,město,10
+blue,modrá,10
+white,bílá,10
+cat,kočka,10
+car,auto,10
+person,člověk,10
+house,dům,10
+one,jedna,10
+two,dva,10
+three,tři,8
+four,čtyři,10
+five,pět,10
+elephant,slon,10
+snake,had,10

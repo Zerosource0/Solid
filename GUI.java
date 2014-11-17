@@ -37,7 +37,10 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 MainController control = new MainController();
 
-                control.checkGuess(englishWord.getText(),czechWord.getText());
+                if(control.checkGuess(englishWord.getText(),czechWord.getText())){
+                    init();
+                }
+                
                 control.save(MainClass.filePath);
             }
         });

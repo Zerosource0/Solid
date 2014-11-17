@@ -7,19 +7,22 @@ package solid;
 
 import solid.Control.MainController;
 import java.util.ArrayList;
-
+import solid.HelpClasses.Reset;
 /**
  *
  * @author marcj_000
  */
 public class MainClass {
-
+    
     public static ArrayList<Word> collection = new ArrayList<Word>();
     public static String filePath = "src/solid/files/Dictionary.txt";
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Reset reset = new Reset();
+        //reset.resetDictionary();
+        
         GUI userInterface = new GUI();
         MainController control = new MainController();
         control.load(filePath);
