@@ -18,6 +18,7 @@ public class GUI {
     private JButton newWordButton = new JButton();
     private JButton nextButton = new JButton();
     private JLabel rewardLabel = new JLabel();
+    private JButton lookupButton = new JButton();
 
     private JFrame jf = new JFrame();
     private JButton resetButton = new JButton();
@@ -36,7 +37,8 @@ public class GUI {
         panel.add(newWordButton);
         panel.add(new JSeparator(SwingConstants.HORIZONTAL),"span 3");
         panel.add(new JLabel("English:"));
-        panel.add(englishWord,"wrap");
+        panel.add(englishWord);
+        panel.add(lookupButton);
         panel.add(new JLabel("Czech:"));
         panel.add(czechWord);
         panel.add(guessButton);
@@ -67,6 +69,15 @@ public class GUI {
             }
         });
 
+        lookupButton.setText("Lookup");
+        lookupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                czechWord.setText(control.lookup(englishWord.getText()));
+                guessButton.setEnabled(false);
+            }
+        });
+
         guessButton.setText("Guess");
         guessButton.addActionListener(new ActionListener() {
             @Override
@@ -87,6 +98,8 @@ public class GUI {
         nextButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                guessButton.setEnabled(true);
+                rewardLabel.setText("");
                 init();
             }
         });
